@@ -1,7 +1,22 @@
 import React from "react";
 import { Breadcrumb, Layout, Menu, theme } from "antd";
-import { Link, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 const { Header, Content, Footer } = Layout;
+
+const arrNavLink = [
+    {
+        title: "Trang chu",
+        to: "/",
+    },
+    {
+        title: "Demo State",
+        to: "/demo-state",
+    },
+    {
+        title: "Demo",
+        to: "/demo",
+    },
+];
 
 const HomeTemplate = () => {
     const {
@@ -11,8 +26,30 @@ const HomeTemplate = () => {
         <Layout>
             <Header style={{ display: "flex", alignItems: "center" }} className="space-x-3">
                 <div className="demo-logo" />
-                <Link to="/">Trang chu</Link>
-                <Link to="/demo-state">Demo State</Link>
+                {/* <Link to="/">Trang chu</Link> */}
+                {/* <Link to="/demo-state">Demo State</Link> */}
+                {/* <NavLink
+                    to="/demo-state"
+                    className={({ isActive }) => {
+                        // console.log("🚀 ~ HomeTemplate ~ helper:", helper);
+                        return isActive ? "!text-red-500" : "";
+                    }}
+                >
+                    Demo State
+                </NavLink> */}
+                {arrNavLink.map((item, index) => {
+                    return (
+                        <NavLink
+                            key={index}
+                            to={item.to}
+                            className={({ isActive }) => {
+                                return isActive ? "!text-red-500" : "";
+                            }}
+                        >
+                            {item.title}
+                        </NavLink>
+                    );
+                })}
             </Header>
             <Content style={{ padding: "0 48px" }}>
                 <Breadcrumb style={{ margin: "16px 0" }}>
