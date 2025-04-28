@@ -16,6 +16,14 @@ const arrNavLink = [
         title: "Demo",
         to: "/demo",
     },
+    {
+        title: "Product List",
+        to: "/product-list",
+    },
+    {
+        title: "Gio Hang",
+        to: "/gio-hang",
+    },
 ];
 
 const HomeTemplate = () => {
